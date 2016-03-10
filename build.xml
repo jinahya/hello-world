@@ -1,0 +1,23 @@
+<project name="hello-world" default="dpl">
+  <property name="src" location="src/main/java"/>
+  <property name="dst" location="dst"/>
+  <property name="dpl" location="dpl"/>
+  <target name="init">
+    <mkdir dir="${dst}"/>
+  </target>
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${dst}" encoding="UTF-8"/>
+  </target>
+  <target name="dpl" depends="compile">
+    <mkdir dir="${dpl}"/>
+    <jar jarfile="${dpl}/hello-world.jar" basedir="${dst}">
+      <manifest>
+	<attribute name="Main-Class" value="com.github.jinahya.HelloWorld"/>
+      </manifest>
+    </jar>
+  </target>
+  <target name="clean">
+    <delete dir="${dst}"/>
+    <delete dir="${dpl}"/>
+  </target>
+</project>
