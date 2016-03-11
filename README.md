@@ -1,4 +1,5 @@
 # hello-world
+a simple project prints "hello, world" using various build tools.
 ## scripts
 ### buildall.sh
 Builds ant, maven, and gradle in a row.
